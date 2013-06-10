@@ -1,5 +1,6 @@
 use strict;
 use warnings;
+
 use Text::CSV_XS;
 use Time::Piece;
 
@@ -88,13 +89,14 @@ sub create_short_videos {
   close $fh;
 }
 
+
+### main
+
 if ($#ARGV != 2) {
   print "Usage: perl create_short_videos.pl [input.mpg] [segments.txt] [output_path/]" . "\n";
   print "Ex: perl create_short_videos.pl ../die_hard.mpg segments.txt training" . "\n";
   exit; 
 }
 
-
-### main
 &create_short_videos($ARGV[0], $ARGV[1], $ARGV[2]);
 
